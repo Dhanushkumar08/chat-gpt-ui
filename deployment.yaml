@@ -7,14 +7,14 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: frontend
+      app: chatgpt-ui
   template:
     metadata:
       labels:
-        app: frontend
+        app: chatgpt-ui
     spec:
       containers:
-      - name: frontend
+      - name: chatgpt-ui
         image: dhanush08/ui:latest
         ports:
-        - containerPort: 80
+        - containerPort: 8080

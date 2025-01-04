@@ -3,11 +3,15 @@ kind: Service
 metadata:
   name: chatgpt-ui
   namespace: chatgpt-ui
+  annotations:
+      prometheus.io/scrape: 'true'
+      prometheus.io/path:   /
+      prometheus.io/port:   '8080'
 spec:
   selector:
     app: chatgpt-ui
-  ports:
-    - protocol: TCP
-      port: 80
-      targetPort: 80
   type: LoadBalancer
+  ports:
+    - port: 8080
+      targetPort: 8080
+      protocol: TCP
