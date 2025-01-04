@@ -1,11 +1,11 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: frontend-service
+  name: chatgpt-ui
   namespace: chatgpt-ui
 spec:
   selector:
-    app: frontend
+    app: chatgpt-ui
   ports:
     - protocol: TCP
       port: 80
