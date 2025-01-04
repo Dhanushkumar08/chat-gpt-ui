@@ -16,3 +16,9 @@ RUN npm run build
 FROM nginx:alpine
 
 COPY --from=build /app/build /usr/share/nginx/html
+
+# Expose port 80 (default for Nginx)
+EXPOSE 80
+
+# Optionally: You can specify Nginx as the entrypoint, but it's the default behavior in the Nginx image.
+# CMD ["nginx", "-g", "daemon off;"]  # This is already set in the default Nginx image
