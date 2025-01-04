@@ -3,9 +3,11 @@ FROM node:16 AS build
 
 WORKDIR /app
 
-RUN npm install
+# Copy package.json and package-lock.json if available
+COPY package.json ./
+COPY package-lock.json ./  # This will not break even if the file is missing
 
-COPY package.json package-lock.json ./
+RUN npm install
 
 COPY . .
 RUN npm run build
