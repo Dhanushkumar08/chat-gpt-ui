@@ -5,7 +5,7 @@ WORKDIR /app
 
 # Copy package.json and package-lock.json if available
 COPY package.json ./
-COPY package-lock.json ./  # This will not break even if the file is missing
+# COPY package-lock.json ./  # This will not break even if the file is missing
 
 RUN npm install
 
