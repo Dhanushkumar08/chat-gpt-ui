@@ -46,7 +46,7 @@ pipeline {
                     serverUrl: 'https://192.168.208.129:6443'
                 ) {
                     bat "kubectl apply -f deployment.yaml"
-                    bat "kubectl apply -f services.yaml"
+                    bat "kubectl apply -f service.yaml"
                 }
             }
         }
