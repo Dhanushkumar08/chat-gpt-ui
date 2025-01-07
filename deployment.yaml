@@ -15,6 +15,6 @@ spec:
     spec:
       containers:
       - name: chatgpt-ui
-        image: dhanush08/ui:16
+        image: dhanush08/ui:17
         ports:
         - containerPort: 8080
