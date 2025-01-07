@@ -11,7 +11,7 @@ const App = () => {
     setLoading(true);
 
     try {
-      const backendUrl = "http://192.168.208.202:8080";  // Update to your backend URL
+      const backendUrl = "http://192.168.208.129:35631";  // Update to your backend URL
       const res = await fetch(`${backendUrl}/chat`, {
         method: "POST",
         headers: {
