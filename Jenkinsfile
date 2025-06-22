@@ -11,29 +11,29 @@ pipeline {
                 checkout scm
             }
         }
-        stage('Build Docker Image') {
-            steps {
-                script {
-                    docker.build("${IMAGE_NAME}:latest")
-                }
-            }
-        }
-        stage('Push Docker Image') {
-            steps {
-                script {
-                    // Define Docker image name without the registry URL
-                    def imageName = "dhanush08/ui:${env.BUILD_ID}"
+        // stage('Build Docker Image') {
+        //     steps {
+        //         script {
+        //             docker.build("${IMAGE_NAME}:latest")
+        //         }
+        //     }
+        // }
+        // stage('Push Docker Image') {
+        //     steps {
+        //         script {
+        //             // Define Docker image name without the registry URL
+        //             def imageName = "dhanush08/ui:${env.BUILD_ID}"
                     
-                    // Log in to Docker registry and build the Docker image
-                    docker.withRegistry('https://index.docker.io/v1/', DOCKER_CREDENTIALS) {
-                        // Build and tag the Docker image
-                        def image = docker.build(imageName)
-                        // Push the Docker image to Docker Hub
-                        image.push()
-                    }
-                }
-            }
-        }
+        //             // Log in to Docker registry and build the Docker image
+        //             docker.withRegistry('https://index.docker.io/v1/', DOCKER_CREDENTIALS) {
+        //                 // Build and tag the Docker image
+        //                 def image = docker.build(imageName)
+        //                 // Push the Docker image to Docker Hub
+        //                 image.push()
+        //             }
+        //         }
+        //     }
+        // }
         stage('Deploy To Kubernetes') {
             steps {
                 withKubeConfig(
