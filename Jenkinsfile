@@ -8,7 +8,7 @@ pipeline {
     }
 
     tools {
-        sonarScanner 'SonarScanner' // This must match the name in Jenkins > Global Tool Configuration
+        sonarRunner 'SonarScanner' // This must match the name in Jenkins > Global Tool Configuration
     }
 
     stages {
