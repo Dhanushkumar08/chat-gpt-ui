@@ -59,7 +59,7 @@ pipeline {
                     credentialsId: 'k8-login', 
                     namespace: 'chatgpt-ui', 
                     restrictKubeConfigAccess: false, 
-                    serverUrl: 'https://192.168.208.129:6443'
+                    serverUrl: 'https://192.168.28.129:6443'
                 ) {
                     bat "kubectl get pods -n chatgpt"
                     bat "kubectl get svc -n chatgpt"
