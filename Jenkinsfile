@@ -6,17 +6,24 @@ pipeline {
         DOCKER_REGISTRY = "hub.docker.com/repository/docker/dhanush08/ui"
         DOCKER_CREDENTIALS = "docker-creds"
     }
+
     stages {
         stage('Checkout Code') {
             steps {
                 checkout scm
             }
         }
-
+        node {
+          stage('SCM') {
+            checkout scm
+          }  
         stage('SonarQube Analysis') {
             steps {
-                withSonarQubeEnv('MySonarQube') { // This must match the name in Jenkins > Configure System > SonarQube Servers
-                    sh 'sonar-scanner'
+                script {
+                    def scannerHome = tool 'SonarScanner' // Assumes configured in Jenkins Global Tools
+                    withSonarQubeEnv() {
+                        sh "${scannerHome}/bin/sonar-scanner"
+                    }
                 }
             }
         }
