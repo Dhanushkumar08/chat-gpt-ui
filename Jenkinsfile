@@ -61,8 +61,8 @@ pipeline {
                     restrictKubeConfigAccess: false, 
                     serverUrl: 'https://192.168.28.129:6443'
                 ) {
-                    bat "kubectl get pods -n chatgpt"
-                    bat "kubectl get svc -n chatgpt"
+                    bat "kubectl get pods -n chatgpt-ui"
+                    bat "kubectl get svc -n chatgpt-ui"
                 }
             }
         }
