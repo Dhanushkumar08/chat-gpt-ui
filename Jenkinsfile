@@ -13,11 +13,11 @@ pipeline {
                 checkout scm
             }
         }
-        node {
-          stage('SCM') {
-            checkout scm
-          }  
-        }  
+        // node {
+        //   stage('SCM') {
+        //     checkout scm
+        //   }  
+        // }  
         stage('SonarQube Analysis') {
             steps {
                 script {
