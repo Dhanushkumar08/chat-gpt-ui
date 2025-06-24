@@ -6,11 +6,6 @@ pipeline {
         DOCKER_REGISTRY = "hub.docker.com/repository/docker/dhanush08/ui"
         DOCKER_CREDENTIALS = "docker-creds"
     }
-
-    tools {
-        sonarRunner 'SonarScanner' // This must match the name in Jenkins > Global Tool Configuration
-    }
-
     stages {
         stage('Checkout Code') {
             steps {
