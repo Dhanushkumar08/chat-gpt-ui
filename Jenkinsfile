@@ -6,7 +6,6 @@ pipeline {
         DOCKER_REGISTRY = "hub.docker.com/repository/docker/dhanush08/ui"
         DOCKER_CREDENTIALS = "docker-creds"
     }
-
     stages {
         stage('Checkout Code') {
             steps {
