@@ -16,3 +16,5 @@ RUN npm run build
 FROM nginx:alpine
 
 COPY --from=build /app/build /usr/share/nginx/html
+
+# sh 'sonar-scanner -Dsonar.projectKey=my-project -Dsonar.sources=src -Dsonar.host.url=http://192.168.28.128:9000 -Dsonar.login=sqb_00179cd78e58f7638a0086126c2e106d07d70064'
